@@ -9,6 +9,8 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
+import org.example.chess_application.software.configuration.JavaFXButtonStorage;
+import org.example.chess_application.software.domain.ChessFigure;
 import org.example.chess_application.software.domain.ChessMap;
 import org.example.chess_application.software.domain.figures.*;
 
@@ -59,101 +61,90 @@ public class StartConfiguration {
                 figureColorObject.get("pawn"), fontSize, figureColor);
     }
 
+    private static void setSettings(ObservableList<ObservableList<Node>> nodes, ChessMap map,
+                                    int row, int column, ChessFigure figure,
+                                    JsonElement icon, int fontSize){
+        map.setFigure(row, column, figure);
+
+        Button button = (Button) nodes.get(row - 1).get(column - 1);
+
+        JavaFXButtonStorage storage = new JavaFXButtonStorage(figure);
+        button.setUserData(storage);
+
+        button.setText(icon.getAsString());
+        button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+    }
+
     private static void configureKing(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                       JsonObject position_king,
-                                      JsonElement figure_king, int fontSize, ChessFigureColor color){
+                                      JsonElement icon, int fontSize, ChessFigureColor color){
         int row = position_king.get("r").getAsInt();
         int column = position_king.get("c").getAsInt();
 
-
-        ChessFigureKing King = new ChessFigureKing(color, figure_king.getAsString(), new ChessPosition(row, column));
-        map.setFigure(row, column, King);
-
-        Button button = (Button) nodes.get(row - 1).get(column - 1);
-        button.setText(figure_king.getAsString());
-        button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+        ChessFigure figure = new ChessFigureKing(color, icon.getAsString(), new ChessPosition(row, column));
+        setSettings(nodes, map, row, column, figure, icon, fontSize);
 
     }
 
     private static void configureQueen(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                        JsonObject position_queen,
-                                       JsonElement figure_queen, int fontSize, ChessFigureColor color) {
+                                       JsonElement icon, int fontSize, ChessFigureColor color) {
         int row = position_queen.get("r").getAsInt();
         int column = position_queen.get("c").getAsInt();
 
-        ChessFigureQueen Queen = new ChessFigureQueen(color, figure_queen.getAsString(), new ChessPosition(row, column));
-        map.setFigure(row, column, Queen);
-
-        Button button = (Button) nodes.get(row - 1).get(column - 1);
-        button.setText(figure_queen.getAsString());
-        button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+        ChessFigure figure = new ChessFigureQueen(color, icon.getAsString(), new ChessPosition(row, column));
+        setSettings(nodes, map, row, column, figure, icon, fontSize);
     }
 
     private static void configureRock(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                       JsonArray position_rock,
-                                      JsonElement figure_rock, int fontSize, ChessFigureColor color){
+                                      JsonElement icon, int fontSize, ChessFigureColor color){
         for(JsonElement element : position_rock) {
             JsonObject pair = element.getAsJsonObject();
             int row = pair.get("r").getAsInt();
             int column = pair.get("c").getAsInt();
 
-            ChessFigureRock Rock = new ChessFigureRock(color, figure_rock.getAsString(), new ChessPosition(row, column));
-            map.setFigure(row, column, Rock);
-
-            Button button = (Button) nodes.get(row - 1).get(column - 1);
-            button.setText(figure_rock.getAsString());
-            button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+            ChessFigure figure = new ChessFigureRock(color, icon.getAsString(), new ChessPosition(row, column));
+            setSettings(nodes, map, row, column, figure, icon, fontSize);
         }
     }
 
     private static void configureBishop(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                         JsonArray position_bishop,
-                                        JsonElement figure_bishop, int fontSize, ChessFigureColor color){
+                                        JsonElement icon, int fontSize, ChessFigureColor color){
         for(JsonElement element : position_bishop) {
             JsonObject pair = element.getAsJsonObject();
             int row = pair.get("r").getAsInt();
             int column = pair.get("c").getAsInt();
 
-            ChessFigureBishop Bishop = new ChessFigureBishop(color, figure_bishop.getAsString(), new ChessPosition(row, column));
-            map.setFigure(row, column, Bishop);
-
-            Button button = (Button) nodes.get(row - 1).get(column - 1);
-            button.setText(figure_bishop.getAsString());
-            button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+            ChessFigure figure = new ChessFigureBishop(color, icon.getAsString(), new ChessPosition(row, column));
+            setSettings(nodes, map, row, column, figure, icon, fontSize);
         }
     }
 
     private static void configureKnight(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                         JsonArray position_knight,
-                                        JsonElement figure_knight, int fontSize, ChessFigureColor color){
+                                        JsonElement icon, int fontSize, ChessFigureColor color){
         for(JsonElement element : position_knight) {
             JsonObject pair = element.getAsJsonObject();
             int row = pair.get("r").getAsInt();
             int column = pair.get("c").getAsInt();
 
-            ChessFigureKnight Knight = new ChessFigureKnight(color, figure_knight.getAsString(), new ChessPosition(row, column));
-            map.setFigure(row, column, Knight);
-
-            Button button = (Button) nodes.get(row - 1).get(column - 1);
-            button.setText(figure_knight.getAsString());
-            button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+            ChessFigure figure = new ChessFigureKnight(color, icon.getAsString(), new ChessPosition(row, column));
+            setSettings(nodes, map, row, column, figure, icon, fontSize);
         }
     }
 
     private static void configurePawn(ChessMap map, ObservableList<ObservableList<Node>> nodes,
                                       JsonArray position_pawn,
-                                      JsonElement figure_pawn, int fontSize, ChessFigureColor color) {
+                                      JsonElement icon, int fontSize, ChessFigureColor color) {
         for(JsonElement element : position_pawn) {
             JsonObject pair = element.getAsJsonObject();
             int row = pair.get("r").getAsInt();
             int column = pair.get("c").getAsInt();
 
-            ChessFigurePawn Pawn = new ChessFigurePawn(color, figure_pawn.getAsString(), new ChessPosition(row, column));
-            map.setFigure(row, column, Pawn);
-
-            Button button = (Button) nodes.get(row - 1).get(column - 1);
-            button.setText(figure_pawn.getAsString());
-            button.setStyle(button.getStyle() + String.format(";-fx-font-size: %dpx;", fontSize));
+            ChessFigure figure = new ChessFigurePawn(color, icon.getAsString(), new ChessPosition(row, column));
+            setSettings(nodes, map, row, column, figure, icon, fontSize);
         }
     }
 }
