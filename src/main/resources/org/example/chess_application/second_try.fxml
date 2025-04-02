@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+fx:controller="org.example.chess_application.UI.controllers.BoardController">
+   <center>
+      <Pane fx:id="mainPane" maxHeight="560.0" maxWidth="560.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="560.0" prefWidth="560.0">
+         <children>
+            <Pane fx:id="boardPane" layoutX="31.0" layoutY="31.0" prefHeight="497.0" prefWidth="497.0">
+               <children>
+                  <HBox fx:id="row_1" alignment="BOTTOM_CENTER" layoutY="434.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_2" layoutY="372.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_3" alignment="BOTTOM_CENTER" layoutY="310.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_4" layoutY="248.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_5" alignment="BOTTOM_CENTER" layoutY="186.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_6" layoutY="124.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_7" alignment="BOTTOM_CENTER" layoutY="62.0" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+                  <HBox fx:id="row_8" prefHeight="62.0" prefWidth="496.0">
+                     <children>
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                        <Button mnemonicParsing="false" prefHeight="62.0" prefWidth="62.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+            <Line endX="372.00006103515625" endY="1.0" layoutX="155.0" layoutY="30.0" startX="-122.89832305908203" startY="0.29290771484375" />
+            <Line endX="32.070770263671875" endY="527.8599853515625" startX="32.07074737548828" startY="30.8245849609375" />
+            <Line endX="518.0000610351562" endY="518.0" layoutX="10.0" layoutY="10.0" startX="517.6665649414062" startY="23.49310302734375" />
+            <Line endX="363.00006103515625" endY="488.0" layoutX="165.0" layoutY="40.0" startX="-132.22213745117188" startY="488.5670166015625" />
+            <VBox layoutY="31.0" prefHeight="496.0" prefWidth="31.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="8" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="7" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="6" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="5" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="4" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="3" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="2" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="1" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="528.0" layoutY="31.0" prefHeight="496.0" prefWidth="31.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="8" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="7" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="6" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="5" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="4" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="3" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="2" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="62.0" prefWidth="31.0" text="1" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <HBox layoutX="31.0" prefHeight="31.0" prefWidth="496.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="a" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="b" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="c" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="d" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="e" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="f" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="g" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="h" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox layoutX="31.0" layoutY="528.0" prefHeight="31.0" prefWidth="496.0">
+               <children>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="a" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="b" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="c" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="d" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="e" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="f" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="g" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="31.0" prefWidth="62.0" text="h" textAlignment="CENTER" textFill="#510f0f">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+   </center>
+</BorderPane>
