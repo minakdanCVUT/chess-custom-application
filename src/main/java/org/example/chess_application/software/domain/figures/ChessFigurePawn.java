@@ -1,10 +1,12 @@
 package org.example.chess_application.software.domain.figures;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.domain.ChessFigure;
 import org.example.chess_application.software.domain.ChessMap;
-import org.example.chess_application.software.service.help.PositionConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,7 +27,10 @@ public class ChessFigurePawn extends ChessFigure {
         }
     }
 
-    static List<PawnMove> moves = new ArrayList<>(Arrays.asList(new PawnMove(1), new PawnMove(2)));
+    private static final List<PawnMove> moves = new ArrayList<>(Arrays.asList(
+            new PawnMove(1),
+            new PawnMove(2)
+    ));
 
     @Override
     public void move(ChessMap map) throws Exception{
@@ -38,28 +43,20 @@ public class ChessFigurePawn extends ChessFigure {
     }
 
     @Override
-    public void showMoves(ChessMap map) throws Exception {
+    public ObservableList<Node> showMoves(ChessMap map) {
         int rowMove = 1;
         if(color == ChessFigureColor.BLACK){
             rowMove = -1;
         }
-        List<String> goodPositions = new ArrayList<>();
+        ObservableList<Node> goodToMove = FXCollections.emptyObservableList();
         for(PawnMove move: moves){
             ChessPosition pos = new ChessPosition(position.getRow() + move.row * rowMove, position.getColumn() + move.column);
             if(pos.getRow() >= 1 && pos.getRow() <= 8 && pos.getColumn() >= 1 && pos.getColumn() <= 8){
                 if(map.checkToMove(pos)){
-                    goodPositions.add(PositionConverter.convertBack(pos));
+                    goodToMove.add(map.getButton(pos.getRow(), pos.getColumn()));
                 }
             }
         }
-        if(!goodPositions.isEmpty()) {
-            System.out.println("Выбери одну позицию:");
-            for (String str : goodPositions) {
-                System.out.print(str + ", ");
-            }
-            System.out.println();
-        }else{
-            System.out.println("Нет возможных ходов для этой фигуры");
-        }
+        return goodToMove;
     }
 }

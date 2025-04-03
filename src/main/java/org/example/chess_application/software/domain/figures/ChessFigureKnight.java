@@ -1,5 +1,8 @@
 package org.example.chess_application.software.domain.figures;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.domain.ChessFigure;
@@ -24,7 +27,7 @@ public class ChessFigureKnight extends ChessFigure {
         }
     }
 
-    private static List<KnightMove> moves = new ArrayList<>(Arrays.asList(
+    private static final List<KnightMove> moves = new ArrayList<>(Arrays.asList(
             new KnightMove(2, -1),
             new KnightMove(2, 1),
             new KnightMove(-2, -1),
@@ -46,21 +49,17 @@ public class ChessFigureKnight extends ChessFigure {
     }
 
     @Override
-    public void showMoves(ChessMap map) throws Exception {
-        List<String> goodPositions = new ArrayList<>();
+    public ObservableList<Node> showMoves(ChessMap map) {
+        ObservableList<Node> goodToMove = FXCollections.emptyObservableList();
         for(KnightMove move : moves){
             ChessPosition pos = new ChessPosition(position.getRow() + move.row, position.getColumn() + move.column);
             if(pos.getRow() >= 1 && pos.getRow() <= 8 && pos.getColumn() >= 1 && pos.getColumn() <= 8){
                 if(map.checkToMove(pos)){
-                    goodPositions.add(PositionConverter.convertBack(pos));
+                    goodToMove.add(map.getButton(pos.getRow(), pos.getColumn()));
                 }
             }
         }
-        System.out.println("Выбери одну позицию:");
-        for(String str : goodPositions){
-            System.out.print(str + ", ");
-        }
-        System.out.println();
+        return goodToMove;
     }
 
 }

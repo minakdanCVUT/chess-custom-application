@@ -1,5 +1,8 @@
 package org.example.chess_application.software.domain.figures;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.domain.ChessFigure;
@@ -23,7 +26,7 @@ public class ChessFigureBishop extends ChessFigure {
             this.column = column;
         }
     }
-    private static List<BishopMove> moves = new ArrayList<>(Arrays.asList(
+    private static final List<BishopMove> moves = new ArrayList<>(Arrays.asList(
             new BishopMove(1, 1),
             new BishopMove(-1, -1),
             new BishopMove(1, -1),
@@ -41,15 +44,15 @@ public class ChessFigureBishop extends ChessFigure {
     }
 
     @Override
-    public void showMoves(ChessMap map) throws Exception {
-        List<String> goodPositions = new ArrayList<>();
+    public ObservableList<Node> showMoves(ChessMap map) {
+        ObservableList<Node> goodToMove = FXCollections.emptyObservableList();
         for(BishopMove move: moves){
             int iteration = 1;
             while(true) {
                 ChessPosition pos = new ChessPosition(position.getRow() + move.row * iteration, position.getColumn() + move.column * iteration);
                 if (pos.getRow() >= 1 && pos.getRow() <= 8 && pos.getColumn() >= 1 && pos.getColumn() <= 8) {
                     if (map.checkToMove(pos)) {
-                        goodPositions.add(PositionConverter.convertBack(pos));
+                        goodToMove.add(map.getButton(pos.getRow(), pos.getColumn()));
                         iteration++;
                     }else{
                         break;
@@ -59,15 +62,7 @@ public class ChessFigureBishop extends ChessFigure {
                 }
             }
         }
-        if(!goodPositions.isEmpty()) {
-            System.out.println("Выбери одну позицию:");
-            for (String str : goodPositions) {
-                System.out.print(str + ", ");
-            }
-            System.out.println();
-        }else{
-            System.out.println("Нет возможных ходов для этой фигуры");
-        }
+        return goodToMove;
     }
 
 
