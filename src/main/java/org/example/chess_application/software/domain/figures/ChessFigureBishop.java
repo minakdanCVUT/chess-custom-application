@@ -7,7 +7,6 @@ import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.domain.ChessFigure;
 import org.example.chess_application.software.domain.ChessMap;
-import org.example.chess_application.software.service.help.PositionConverter;
 
 import java.util.ArrayList;
 import java.util.Arrays;
