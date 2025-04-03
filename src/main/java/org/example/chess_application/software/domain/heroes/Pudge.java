@@ -1,5 +1,7 @@
 package org.example.chess_application.software.domain.heroes;
 
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
 import org.example.chess_application.software.configuration.ChessFigureColor;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.domain.ChessFigure;
@@ -37,8 +39,8 @@ public class Pudge extends ChessFigure implements ChessFigureHero {
     }
 
     @Override
-    public void showMoves(ChessMap map) throws Exception {
-
+    public ObservableList<Node> showMoves(ChessMap map) {
+        return null;
     }
 
 

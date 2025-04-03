@@ -1,14 +1,16 @@
 package org.example.chess_application.software.domain;
 
+import javafx.collections.ObservableList;
+import javafx.scene.Node;
+import javafx.scene.control.Button;
 import org.example.chess_application.software.configuration.ChessPosition;
 import org.example.chess_application.software.configuration.ChessCellColor;
-import org.example.chess_application.software.service.start_config.StartMapConfiguration;
-import org.example.chess_application.software.domain.ChessCell;
 
 import java.util.*;
 
 public class ChessMap {
     private final Map<Integer, Map<Integer, ChessCell>> map;
+    private ObservableList<ObservableList<Node>> buttons;
 
     public ChessMap() {
         map = new HashMap<>();
@@ -43,60 +45,72 @@ public class ChessMap {
         cell.setFigure(figure);
     }
 
-    public void showMap(){
-        for(int i = 1; i <= 8; ++i){
-            for(int j = 1; j <= 8; ++j){
-                ChessCell cell = map.get(i).get(j);
-                if(cell.getFigure() == null){
-                    if(cell.getColor() == ChessCellColor.WHITE){
-                        if(j == 8)
-                            System.out.print("■");
-                        else
-                            System.out.print("■  ");
-                    }
-                    else {
-                        if (j == 8)
-                            System.out.print("□");
-                        else
-                            System.out.print("□  ");
-                    }
-                }else{
-                    if (j == 8)
-                        System.out.print(cell.getFigure().getFigure());
-                    else
-                        System.out.print(cell.getFigure().getFigure() + "  ");
-                }
-            }
-            System.out.println();
-        }
+    public void setButtons(ObservableList<ObservableList<Node>> buttons){
+        this.buttons = buttons;
     }
 
-    public void showMapReverse(){
-        for(int i = 8; i >= 1; --i){
-            for(int j = 8; j >= 1; --j){
-                ChessCell cell = map.get(i).get(j);
-                if(cell.getFigure() == null){
-                    if(cell.getColor() == ChessCellColor.WHITE){
-                        if(j == 1)
-                            System.out.print("■");
-                        else
-                            System.out.print("■  ");
-                    }
-                    else {
-                        if (j == 1)
-                            System.out.print("□");
-                        else
-                            System.out.print("□  ");
-                    }
-                }else{
-                    if (j == 1)
-                        System.out.print(cell.getFigure().getFigure());
-                    else
-                        System.out.print(cell.getFigure().getFigure() + "  ");
-                }
-            }
-            System.out.println();
-        }
+    public ObservableList<ObservableList<Node>> getButtons(){
+        return buttons;
+    }
+
+//    public void showMap(){
+//        for(int i = 1; i <= 8; ++i){
+//            for(int j = 1; j <= 8; ++j){
+//                ChessCell cell = map.get(i).get(j);
+//                if(cell.getFigure() == null){
+//                    if(cell.getColor() == ChessCellColor.WHITE){
+//                        if(j == 8)
+//                            System.out.print("■");
+//                        else
+//                            System.out.print("■  ");
+//                    }
+//                    else {
+//                        if (j == 8)
+//                            System.out.print("□");
+//                        else
+//                            System.out.print("□  ");
+//                    }
+//                }else{
+//                    if (j == 8)
+//                        System.out.print(cell.getFigure().getFigure());
+//                    else
+//                        System.out.print(cell.getFigure().getFigure() + "  ");
+//                }
+//            }
+//            System.out.println();
+//        }
+//    }
+//
+//    public void showMapReverse(){
+//        for(int i = 8; i >= 1; --i){
+//            for(int j = 8; j >= 1; --j){
+//                ChessCell cell = map.get(i).get(j);
+//                if(cell.getFigure() == null){
+//                    if(cell.getColor() == ChessCellColor.WHITE){
+//                        if(j == 1)
+//                            System.out.print("■");
+//                        else
+//                            System.out.print("■  ");
+//                    }
+//                    else {
+//                        if (j == 1)
+//                            System.out.print("□");
+//                        else
+//                            System.out.print("□  ");
+//                    }
+//                }else{
+//                    if (j == 1)
+//                        System.out.print(cell.getFigure().getFigure());
+//                    else
+//                        System.out.print(cell.getFigure().getFigure() + "  ");
+//                }
+//            }
+//            System.out.println();
+//        }
+//    }
+
+    public Button getButton(int row, int column){
+        return (Button) buttons.get(row).get(column);
     }
 
     public boolean checkToMove(ChessPosition pos){
