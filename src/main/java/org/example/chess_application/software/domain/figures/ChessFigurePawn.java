@@ -48,12 +48,12 @@ public class ChessFigurePawn extends ChessFigure {
         if(color == ChessFigureColor.BLACK){
             rowMove = -1;
         }
-        ObservableList<Node> goodToMove = FXCollections.emptyObservableList();
+        ObservableList<Node> goodToMove = FXCollections.observableArrayList();
         for(PawnMove move: moves){
             ChessPosition pos = new ChessPosition(position.getRow() + move.row * rowMove, position.getColumn() + move.column);
             if(pos.getRow() >= 1 && pos.getRow() <= 8 && pos.getColumn() >= 1 && pos.getColumn() <= 8){
                 if(map.checkToMove(pos)){
-                    goodToMove.add(map.getButton(pos.getRow(), pos.getColumn()));
+                    goodToMove.add(map.getNode(pos.getRow(), pos.getColumn()));
                 }
             }
         }

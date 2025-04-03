@@ -45,14 +45,14 @@ public class ChessFigureBishop extends ChessFigure {
 
     @Override
     public ObservableList<Node> showMoves(ChessMap map) {
-        ObservableList<Node> goodToMove = FXCollections.emptyObservableList();
+        ObservableList<Node> goodToMove = FXCollections.observableArrayList();
         for(BishopMove move: moves){
             int iteration = 1;
             while(true) {
                 ChessPosition pos = new ChessPosition(position.getRow() + move.row * iteration, position.getColumn() + move.column * iteration);
                 if (pos.getRow() >= 1 && pos.getRow() <= 8 && pos.getColumn() >= 1 && pos.getColumn() <= 8) {
                     if (map.checkToMove(pos)) {
-                        goodToMove.add(map.getButton(pos.getRow(), pos.getColumn()));
+                        goodToMove.add(map.getNode(pos.getRow(), pos.getColumn()));
                         iteration++;
                     }else{
                         break;

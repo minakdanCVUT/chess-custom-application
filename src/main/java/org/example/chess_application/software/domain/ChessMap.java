@@ -113,6 +113,11 @@ public class ChessMap {
         return (Button) buttons.get(row).get(column);
     }
 
+    public Node getNode(int row, int column){
+        Node node = buttons.get(row - 1).get(column - 1);
+        return node;
+    }
+
     public boolean checkToMove(ChessPosition pos){
         ChessCell cell = map.get(pos.getRow()).get(pos.getColumn());
         return cell.getFigure() == null;

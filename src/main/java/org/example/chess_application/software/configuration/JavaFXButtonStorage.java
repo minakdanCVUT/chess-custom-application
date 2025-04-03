@@ -6,9 +6,11 @@ public class JavaFXButtonStorage {
     private boolean isPressed;
     private ChessFigure figure;
 
-    public JavaFXButtonStorage(ChessFigure figure) {
+    public static String disabledStyle = "-fx-opacity: 1.0;";
+
+    public JavaFXButtonStorage() {
         isPressed = false;
-        this.figure = figure;
+        this.figure = null;
     }
 
     public boolean isPressed() {

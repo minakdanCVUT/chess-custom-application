@@ -1,6 +1,5 @@
 package org.example.chess_application.UI.controllers;
 
-import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import org.example.chess_application.HelloApplication;
+import org.example.chess_application.software.configuration.JavaFXButtonStorage;
 import org.example.chess_application.software.start_config.StartConfiguration;
 
 
@@ -32,16 +32,21 @@ public class BoardController {
             for(int j = 1; j <= 8; ++j){
                 int button_it = j - 1;
                 Button button = (Button) buttons.get(button_it);
+                JavaFXButtonStorage storage = new JavaFXButtonStorage();
+                button.setUserData(storage);
+                button.setStyle(JavaFXButtonStorage.disabledStyle);
+                button.setDisable(true); // all buttons by default will be disabled
                 if(blackCell){
-                    button.setStyle("-fx-background-color: #633200;");
+                    button.setStyle(button.getStyle() + "-fx-background-color: #d8b698;");
                     blackCell = false;
                 }else{
-                    button.setStyle("-fx-background-color: #9a7b78;");
+                    button.setStyle(button.getStyle() + "-fx-background-color: #e8dfde;");
                     blackCell = true;
                 }
             }
         }
-        StartConfiguration.configureMap(application.getMap(), nodes);
+        application.getMap().setButtons(nodes);
+        StartConfiguration.configureMap(application.getMap());
     }
 
 }
