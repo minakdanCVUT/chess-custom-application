@@ -31,10 +31,6 @@ public class ChessFigureBishop extends ChessFigure {
             new BishopMove(1, -1),
             new BishopMove(-1, 1)
     ));
-    @Override
-    public void move(ChessMap map) throws Exception{
-
-    }
 
 
     @Override

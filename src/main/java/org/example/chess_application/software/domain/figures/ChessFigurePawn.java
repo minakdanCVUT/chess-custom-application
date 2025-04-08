@@ -32,10 +32,6 @@ public class ChessFigurePawn extends ChessFigure {
             new PawnMove(2)
     ));
 
-    @Override
-    public void move(ChessMap map) throws Exception{
-
-    }
 
     @Override
     public void beat(ChessMap map) throws Exception{

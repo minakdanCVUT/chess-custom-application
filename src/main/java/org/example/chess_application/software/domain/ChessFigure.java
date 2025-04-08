@@ -40,7 +40,6 @@ abstract public class ChessFigure {
         this.position = position;
     }
 
-    abstract public void move(ChessMap map) throws Exception;
 
     abstract public void beat(ChessMap map) throws Exception;
 

@@ -37,10 +37,6 @@ public class ChessFigureKnight extends ChessFigure {
             new KnightMove(-1, -2)
     ));
 
-    @Override
-    public void move(ChessMap map) throws Exception{
-
-    }
 
     @Override
     public void beat(ChessMap map) throws Exception{

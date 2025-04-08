@@ -35,11 +35,6 @@ public class ChessFigureRock extends ChessFigure {
     ));
 
     @Override
-    public void move(ChessMap map) throws Exception{
-
-    }
-
-    @Override
     public void beat(ChessMap map) throws Exception{
 
     }

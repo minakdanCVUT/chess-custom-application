@@ -36,10 +36,6 @@ public class ChessFigureQueen extends ChessFigure {
             new QueenMove(1, -1),
             new QueenMove(-1, 1)
     ));
-    @Override
-    public void move(ChessMap map) throws Exception{
-
-    }
 
     @Override
     public void beat(ChessMap map) throws Exception{
