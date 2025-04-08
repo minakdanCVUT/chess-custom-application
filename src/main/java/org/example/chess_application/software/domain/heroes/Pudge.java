@@ -18,22 +18,6 @@ public class Pudge extends ChessFigure implements ChessFigureHero {
     }
 
     @Override
-    public void move(ChessMap map) throws Exception {
-        int rowMove = 1;
-        int colMove = 1;
-        if (color == ChessFigureColor.BLACK) {
-            rowMove = -1;
-            colMove = -1;
-        }
-        ChessPosition newPosition = new ChessPosition(position.getRow() + 1, position.getColumn() +1);
-        if(map.checkToMove(newPosition)){
-            map.moveFigure(this, newPosition);
-        }else{
-            throw new Exception("Вы не можете сходить этим Пуджом");
-        }
-    }
-
-    @Override
     public void beat(ChessMap map) throws Exception {
 
     }
